@@ -18,5 +18,15 @@ namespace WebStarter.Controllers
 
             return View(model);
         }
+
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        public IActionResult Edit(int id)
+        {
+            return View();
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model List<WebStarter.Models.Person>
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,6 +8,7 @@
     <title>Meine erste Webseite</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/Fontawesome.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -62,14 +65,13 @@
                 <input type="number" class="form-control" id="age">
             </div>
             <div style="text-align: right">
-                <a class="btn btn-secondary" href="Index.html">Abbrechen</a>
+                <a class="btn btn-secondary" href="@Url.Action("Index")">Abbrechen</a>
                 <button type="submit" class="btn btn-primary">Speichern</button>
             </div>
         </form>
-
     </div>
 
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="js/Foneawesome.min.js"></script>
 </body>
 </html>

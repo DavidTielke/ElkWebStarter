@@ -1,19 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Reflection.Metadata.Ecma335;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using WebStarter.Data;
 using WebStarter.Models;
 
 namespace WebStarter.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly DataContext _database;
+
+        public HomeController(DataContext database)
+        {
+            _database = database;
+        }
+
         public IActionResult Index()
         {
-            var model = new List<Person>
-            {
-                new Person(1, "David", "Tielke", 41),
-                new Person(2, "Lena", "Tielke", 39),
-                new Person(3, "Maximilian", "Tielke", 12),
-                new Person(4, "Lisa", "Tielke", 2),
-            };
+            var model = _database.Set<Person>().ToList();
 
 
             return View(model);
@@ -24,9 +28,46 @@ namespace WebStarter.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Add(Person person)
+        {
+            _database.Set<Person>().Add(person);
+            _database.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
         public IActionResult Edit(int id)
         {
-            return View();
+            var entity = _database.Set<Person>().Find(id);
+            
+            return View(entity);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Person person)
+        {
+            _database.Set<Person>().Update(person);
+            _database.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var entity = _database.Set<Person>().Find(id);
+            return View(entity);
+        }
+
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var entity = _database.Set<Person>().Find(id);
+            if (entity != null)
+            {
+                _database.Set<Person>().Remove(entity);
+                _database.SaveChanges();
+            }
+            return RedirectToAction("Index");
         }
     }
 }

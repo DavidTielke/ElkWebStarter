@@ -1,24 +1,23 @@
-﻿@{
-    Layout = "_Layout";
-    ViewData["Title"] = "Alle Kontakte anzeigen";
-}
-<h1 class="mt-4 mb-2 text-center">Neuer Kontakt</h1>
+﻿@{  
+   ViewData["Title"] = "Alle Kontakte anzeigen";  
+}  
+<h1 class="mt-4 mb-2 text-center">Neuer Kontakt</h1>  
 
-<form>
-    <div class="mb-2">
-        <label for="firstname" class="form-label">Vorname</label>
-        <input type="text" class="form-control" id="firstname">
-    </div>
-    <div class="mb-2">
-        <label for="lastname" class="form-label">Nachname</label>
-        <input type="text" class="form-control" id="lastname">
-    </div>
-    <div class="mb-2">
-        <label for="age" class="form-label">Alter</label>
-        <input type="number" class="form-control" id="age">
-    </div>
-    <div style="text-align: right">
-        <a class="btn btn-secondary" href="@Url.Action("Index")">Abbrechen</a>
-        <button type="submit" class="btn btn-primary">Speichern</button>
-    </div>
+<form asp-action="Add" asp-controller="Home" method="post">  
+   <div class="mb-2">  
+       <label for="firstname" class="form-label">Vorname</label>  
+       <input type="text" class="form-control" id="firstname" name="FirstName">  
+   </div>  
+   <div class="mb-2">  
+       <label for="lastname" class="form-label">Nachname</label>  
+       <input type="text" class="form-control" id="lastname" name="LastName">  
+   </div>  
+   <div class="mb-2">  
+       <label for="age" class="form-label">Alter</label>  
+       <input type="number" class="form-control" id="age" name="Age">  
+   </div>  
+   <div style="text-align: right">  
+       <a class="btn btn-secondary" href="@Url.Action("Index")">Abbrechen</a>  
+       <button type="submit" class="btn btn-primary">Speichern</button>  
+   </div>  
 </form>

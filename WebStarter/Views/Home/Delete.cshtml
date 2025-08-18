@@ -1,0 +1,15 @@
+﻿@model Person
+
+@{
+    ViewData["Title"] = "Kontakt löschen";
+}
+
+<div class="alert alert-danger" role="alert">
+    <b>ACHTUNG!!!</b>
+    
+    <p>Wollen sie @Model.Firstname @Model.Lastname wirklich löschen?</p>
+</div>
+<div>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Abbrechen</a>
+    <a href="@Url.Action("DeleteConfirmed", new {id = Model.Id})" class="btn btn-danger">Löschen</a>
+</div>

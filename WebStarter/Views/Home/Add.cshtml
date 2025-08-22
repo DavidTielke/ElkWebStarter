@@ -4,7 +4,10 @@
 <h1 class="mt-4 mb-2 text-center">Neuer Kontakt</h1>  
 
 <form asp-action="Add" asp-controller="Home" method="post">  
-   <div class="mb-2">  
+    @Html.AntiForgeryToken()
+    
+
+    <div class="mb-2">  
        <label for="firstname" class="form-label">Vorname</label>  
        <input type="text" class="form-control" id="firstname" name="FirstName">  
    </div>  

@@ -1,0 +1,11 @@
+### POST mit Body
+POST https://localhost:7237/Home/Add
+Content-Type: application/x-www-form-urlencoded
+
+firstname=Hacker&lastname=Eveil&Age=99
+
+### POST mit Body
+POST https://localhost:7237/Home/Add
+Content-Type: application/x-www-form-urlencoded
+
+firstname=Hacker&lastname=Eveil&Age=99

@@ -6,6 +6,7 @@ using WebStarter.Models;
 
 namespace WebStarter.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class HomeController : Controller
     {
         private readonly DataContext _database;
@@ -29,6 +30,7 @@ namespace WebStarter.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Add(Person person)
         {
             _database.Set<Person>().Add(person);
